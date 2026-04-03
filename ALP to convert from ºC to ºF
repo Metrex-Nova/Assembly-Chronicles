@@ -1,0 +1,22 @@
+.model small
+.stack 100h
+
+.data 
+Deg_Cent dw 37
+Deg_Far dw ?
+
+.code 
+main:
+    mov ax, @data
+    mov ds, ax   
+    mov ax, Deg_Cent
+    mov bx, 9
+    mul bx
+    mov bx, 5
+    div bx
+    add ax, 32
+    mov Deg_Far, ax
+    
+    mov ah, 4ch
+    int 21h
+end main
